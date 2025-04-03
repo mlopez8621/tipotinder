@@ -20,5 +20,15 @@ export class UsersController {
   @Post()
     create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
-    }
+  }
+
+  @Get(':id/profile')
+    getProfile(@Param('id') id: string) {
+    return this.usersService.getProfile(id);
+  }
+
+  @Get(':id/photos')
+    async getUserPhotos(@Param('id') id: string) {
+    return this.usersService.getPhotosByUser(id);
+  }
 }

@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
-
+import { PhotosModule } from './photos/photos.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,8 @@ import { UsersModule } from './users/users.module';
       synchronize: false,
     }),
     UsersModule,
+    PhotosModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

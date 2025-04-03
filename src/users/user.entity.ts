@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, OneToMany } from 'typeorm';
+import { Photo } from '../photos/photo.entity';
 
 @Entity('users')
 export class User {
@@ -34,4 +35,7 @@ export class User {
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   updated_at: Date;
+
+  @OneToMany(() => Photo, photo => photo.user)
+  photos: Photo[];
 }
